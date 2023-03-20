@@ -10,6 +10,8 @@ times = 5
 init_time = datetime.now()
 print(f"¡Veremos cuanto tardas en responder estas {times} operaciones!")
 print(f"Recuerde escribir el resultado de la división solo con 3 decimales en caso de ser necesario")
+resultadoscorr = 0
+resultadosinc = 0
 for i in range(0, times):
 # Se eligen números y operador al azar
     number_1 = randrange(10)
@@ -23,18 +25,23 @@ for i in range(0, times):
     resultado = float(result)
 # Le pedimos que nos diga si está bien o mal
     if operator == "+" and (resultado == (number_1 + number_2)):
+        resultadoscorr = resultadoscorr + 1
         print(f"El resultado esta bien")
     elif operator == "-" and (resultado == (number_1 - number_2)):
+        resultadoscorr = resultadoscorr + 1
         print(f"El resultado esta bien")
     elif operator == "*" and (resultado == (number_1 * number_2)):
+        resultadoscorr = resultadoscorr + 1
         print(f"El resultado esta bien")
     elif operator == "/" and (not number_2 == 0) and (resultado == round((number_1 / number_2), 3)):
+        resultadoscorr = resultadoscorr + 1
         print(f"El resultado esta bien")
     else:
         if ((operator == "/") and (number_2 == 0)):
             print(f"La división por cero no está definida")
         else:
-            print(f"El resultado esta mal")
+            resultadosinc = resultadosinc + 1
+        print(f"El resultado esta mal")
 
 # Al terminar toda la cantidad de cuentas por resolver.
 # Se vuelve a tomar la fecha y la hora.
@@ -43,3 +50,5 @@ end_time = datetime.now()
 total_time = end_time - init_time
 # Mostramos ese tiempo en segundos.
 print(f"\n Tardaste {total_time.seconds} segundos.")
+print(f"Resultados correctos:", resultadoscorr)
+print(f"Resultados incorrectos:", resultadosinc)

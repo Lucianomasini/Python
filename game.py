@@ -1,3 +1,6 @@
+from random import choice, randrange
+from datetime import datetime
+
 # Operadores posibles
 operators = ["+", "-"]
 # Cantidad de cuentas a resolver
@@ -8,8 +11,8 @@ init_time = datetime.now()
 print(f"¡Veremos cuanto tardas en responder estas {times} operaciones!")
 for i in range(0, times):
 # Se eligen números y operador al azar
-number_1 = randrange(10)
-number_2 = randrange(10)
+    number_1 = randrange(10)
+    number_2 = randrange(10)
 operator = choice(operators)
 1
 # Se imprime la cuenta.
